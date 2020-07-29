@@ -7,6 +7,27 @@
                 Admin
                 <small>Subheading</small>
             </h1>
+            <?php
+
+            //create method
+            /* $littleJohn = new User();
+            $littleJohn->username = "liljohn";
+            $littleJohn->password = "123";
+            $littleJohn->first_name = "lil";
+            $littleJohn->last_name = "john";
+
+            $littleJohn->create(); */
+
+            //update method
+            /* $user = User::find_user_by_id(2);
+            $user->last_name = "williams";
+            $user->update(); */
+
+            //delete user method
+            $user = User::find_user_by_id(5);
+            $user->delete();
+
+            ?>
 
             <ol class="breadcrumb">
                 <li>
