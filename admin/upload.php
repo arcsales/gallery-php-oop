@@ -2,6 +2,19 @@
 <?php if (!$session->is_signed_in()) {
     redirect("login.php");
 } ?>
+<?php
+$message = "";
+if (isset($_POST['submit'])) {
+    $photo = new Photo();
+    $photo->title = $_POST['title'];
+    $photo->set_file($_FILES['file_upload']);
+    if ($photo->save()) {
+        $message = "Photo uploaded Succesfully.";
+    } else {
+        $message = join("</br>", $photo->errors);
+    }
+}
+?>
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -25,6 +38,7 @@
                 </h1>
                 <div class="col-md-6">
                     <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <?php echo $message; ?>
                         <div class="form-group">
                             <input type="text" name="title">
                         </div>

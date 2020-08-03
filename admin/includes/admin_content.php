@@ -9,7 +9,7 @@
             </h1>
             <?php
 
-            //create method for User class
+            //create method
             /* $littleJohn = new User();
             $littleJohn->username = "newUser";
             $littleJohn->password = "123";
@@ -18,41 +18,41 @@
 
             $littleJohn->create(); */
 
-            //update method for User class
-            /* $user = User::find_user_by_id(6);
+            //update method
+            /* $user = User::find_by_id(6);
             $user->last_name = "Williams";
             $user->update(); */
 
-            //delete user method for User class
-            /* $user = User::find_user_by_id(6);
+            //delete method
+            /* $user = User::find_by_id(6);
             $user->delete(); */
 
-            //save user method to update user by id for User class
-            /* $user = User::find_user_by_id(7);
+            //save method to update
+            /* $user = User::find_by_id(7);
             $user->username = "Whatever";
             $user->password = 333;
             $user->first_name = "Ivan";
             $user->last_name = "Ivanov";
             $user->save(); */
 
-            //save user method to create user for User class
+            //save method to create
             /* $user = new User();
             $user->username = "Whatever_2000";
             $user->save(); */
 
-            //find all method for User class
+            //find all method
             /* $users = User::find_all();
             foreach ($users as $user) {
                 echo $user->username . "</br>";
             } */
 
-            //find all method for Photo class
+            //find all method
             /* $photos = Photo::find_all();
             foreach ($photos as $photo) {
                 echo $photo->title . "</br>";
             } */
 
-            //create method for Photo class
+            //create method
             /* $image = new Photo();
             $image->title = "newUser";
             $image->description = "newUsernewUsernewUser";
@@ -62,8 +62,19 @@
 
             $image->create(); */
 
-            echo INCLUDES_PATH."</br>";
-            echo SITE_ROOT;
+            //includes global path
+            /* echo INCLUDES_PATH . "</br>"; */
+
+            //site root global path
+            /* echo SITE_ROOT; */
+
+            //find_by_id method
+            /* $user = User::find_by_id(7);
+            echo $user->username; */
+
+            /* $photos = User::find_all();
+            foreach ($photos as $photo) {
+                echo $photo->filename . "</br>"; */
 
             ?>
 
