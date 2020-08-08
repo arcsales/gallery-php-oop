@@ -5,87 +5,111 @@
         <div class="col-lg-12">
             <h1 class="page-header">
                 Admin
-                <small>Subheading</small>
+                <small>Dashboard</small>
             </h1>
-            <?php
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><?php echo $session->count; ?></div>
+                                    <div>New Views</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-            //create method
-            /* $littleJohn = new User();
-            $littleJohn->username = "newUser";
-            $littleJohn->password = "123";
-            $littleJohn->first_name = "New";
-            $littleJohn->last_name = "User";
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-photo fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><?php echo Photo::count_all(); ?></div>
+                                    <div>Photos</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="photos.php">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Photos in Gallery</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-            $littleJohn->create(); */
 
-            //update method
-            /* $user = User::find_by_id(6);
-            $user->last_name = "Williams";
-            $user->update(); */
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><?php echo User::count_all(); ?>
 
-            //delete method
-            /* $user = User::find_by_id(6);
-            $user->delete(); */
+                                    </div>
 
-            //save method to update
-            /* $user = User::find_by_id(7);
-            $user->username = "Whatever";
-            $user->password = 333;
-            $user->first_name = "Ivan";
-            $user->last_name = "Ivanov";
-            $user->save(); */
+                                    <div>Users</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="users.php">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Users</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-            //save method to create
-            /* $user = new User();
-            $user->username = "Whatever_2000";
-            $user->save(); */
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><?php echo Comment::count_all(); ?></div>
+                                    <div>Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="comments.php">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Comments</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-            //find all method
-            /* $users = User::find_all();
-            foreach ($users as $user) {
-                echo $user->username . "</br>";
-            } */
 
-            //find all method
-            /* $photos = Photo::find_all();
-            foreach ($photos as $photo) {
-                echo $photo->title . "</br>";
-            } */
-
-            //create method
-            /* $image = new Photo();
-            $image->title = "newUser";
-            $image->description = "newUsernewUsernewUser";
-            $image->filename = "Newimage";
-            $image->type = "image";
-            $image->size = "23";
-
-            $image->create(); */
-
-            //includes global path
-            /* echo INCLUDES_PATH . "</br>"; */
-
-            //site root global path
-            /* echo SITE_ROOT; */
-
-            //find_by_id method
-            /* $user = User::find_by_id(7);
-            echo $user->username; */
-
-            /* $photos = User::find_all();
-            foreach ($photos as $photo) {
-                echo $photo->filename . "</br>"; */
-
-            ?>
-
-            <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
-                </li>
-                <li class="active">
-                    <i class="fa fa-file"></i> Blank Page
-                </li>
-            </ol>
+            </div>
+            <!--First Row-->
+            <div class="row">
+                <div id="piechart" style="width: 900px; height: 500px;"></div>
+            </div>
         </div>
     </div>
     <!-- /.row -->

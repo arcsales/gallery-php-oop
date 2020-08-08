@@ -1,3 +1,4 @@
+<?php require_once("admin/includes/init.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,7 +33,7 @@
 
 
     <!-- Navigation -->
-<?php include("navigation.php"); ?>
+    <?php include("navigation.php"); ?>
 
     <!-- Page Content -->
     <div class="container">

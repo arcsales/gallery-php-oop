@@ -15,9 +15,6 @@ class User extends Db_object
 
     public function upload_photo()
     {
-        /* if ($this->id) {
-            $this->update();
-        } else { */
         if (!empty($this->errors)) {
             return false;
         }
@@ -39,7 +36,6 @@ class User extends Db_object
             $this->errors[] = "The file directory probably does not have permission to write.";
             return false;
         }
-        /*  } */
     }
 
     public function image_path_and_placeholder()
@@ -59,5 +55,30 @@ class User extends Db_object
 
         $the_result_array = self::find_by_query($sql);
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
+    }
+
+    public function ajax_save_user_image($user_image, $user_id)
+    {
+        global $database;
+        $user_image = $database->escape_string($user_image);
+        $user_id = $database->escape_string($user_id);
+
+        $this->user_image = $user_image;
+        $this->id = $user_id;
+
+        $sql = "UPDATE " . self::$db_table . " SET user_image = '{$this->user_image}' ";
+        $sql .= " WHERE id = {$this->id} ";
+        $update_image = $database->query($sql);
+        echo $this->image_path_and_placeholder();
+    }
+
+    public function delete_photo()
+    {
+        if ($this->delete()) {
+            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+            return unlink($target_path) ? true : false;
+        } else {
+            return false;
+        }
     }
 }

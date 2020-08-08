@@ -24,9 +24,8 @@ $photos = Photo::find_all();
             <div class="col-lg-12">
                 <h1 class="page-header">
                     Photos
-                    <small>Subheading</small>
                 </h1>
-
+                <p class="bg-success"><?php echo $message; ?></p>
                 <div class="col-md-12">
                     <table class="table table-hover">
                         <thead>
@@ -36,6 +35,7 @@ $photos = Photo::find_all();
                                 <th>File Name</th>
                                 <th>Title</th>
                                 <th>Size</th>
+                                <th>Comments</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,10 +43,10 @@ $photos = Photo::find_all();
 
                                 <tr>
                                     <td><img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path(); ?>" alt="">
-                                        <div class="pictures_link">
-                                            <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
-                                            <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
-                                            <a href="#">View</a>
+                                        <div class="action_links">
+                                            <a class="delete_link" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                                            <a class="" href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
+                                            <a class="" href="../photo.php?id=<?php echo $photo->id; ?>">View</a>
                                         </div>
 
                                     </td>
@@ -54,6 +54,10 @@ $photos = Photo::find_all();
                                     <td><?php echo $photo->filename; ?></td>
                                     <td><?php echo $photo->title; ?></td>
                                     <td><?php echo $photo->size; ?></td>
+                                    <td><a href="comment_photo.php?id=<?php echo $photo->id; ?>" target="_blank">
+                                            <?php
+                                            $comments = Comment::find_the_comments($photo->id);
+                                            echo count($comments); ?></a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
